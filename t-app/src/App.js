@@ -21,9 +21,10 @@ function App() {
 
   //logIn
   const logIn = async () => {
-    const result = await axios.post("http://localhost:5000/task/logIn", {
+    const result = await axios.post("http://localhost:5000/user/logIn", {
       email: logEmail,
       password: logpassword,
+      
     });
   };
 
@@ -39,11 +40,24 @@ function App() {
         type="text"
         onChange={(e) => setpassword(e.target.value)}
       />
-      <button onClick={register}>sign-up</button>
+      <button onClick={register}>sign up</button>
+      {/* ///// */}
       <br />
-      <input placeholder="email" type="email" />
-      <input placeholder="password" type="password" />
-      <button>log-In</button>
+      <input
+        type="text"
+        placeholder=" email"
+        onChange={(e) => {
+          setlogEmail(e.target.value);
+        }}
+      />
+      <input
+        type="password"
+        placeholder=" password"
+        onChange={(e) => {
+          setlogpassword(e.target.value);
+        }}
+      />
+      <button onClick={logIn}>log In</button>
     </div>
   );
 }
